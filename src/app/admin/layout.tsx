@@ -1,4 +1,4 @@
-import Sidebar from "./Sidebar";
+import Sidebar from "./(overview)/Sidebar";
 // import { adminDashboard } from "@/actions/admin";
 import { AppLayoutProps } from "@/type";
 import { redirect, RedirectType } from "next/navigation";

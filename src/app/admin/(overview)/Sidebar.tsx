@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { FaX } from "react-icons/fa6";
 import { IoGrid } from "react-icons/io5";
 import { PiBellSimpleRingingBold, PiGearSixBold, PiHeadsetBold, PiPulseBold } from "react-icons/pi";
-import { paths } from "../utils/paths";
+import { paths } from "../../utils/paths";
 
 export default function Sidebar() {
   const pathname = usePathname();

@@ -7,42 +7,18 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
 export default function VisitationStats() {
-const chartData = {
-  labels: [
-    "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
-  ],
-  datasets: [
-    {
-      label: "Refunds",
-      data: [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3].sort((a, b) => a - b),
-      backgroundColor: "#84cc16",
-      borderRadius: 8,
-      maxBarThickness: 6,
-    },
-   
-    {
-      label: "Signups",
-      data: [8, 9, 10, 11, 12, 13, 14, 15, 17, 18, 20, 22].sort((a, b) => a - b),
-      backgroundColor: "#84cc16",
-      borderRadius: 8,
-      maxBarThickness: 6,
-    },
-     {
-      label: "Revenue",
-      data: [4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11].sort((a, b) => a - b),
-      backgroundColor: "#84cc16",
-      borderRadius: 8,
-      maxBarThickness: 6,
-    },
-     {
-      label: "Visitors",
-      data: [15, 18, 19, 20, 22, 24, 25, 26, 28, 29, 30, 32].sort((a, b) => a - b),
-      backgroundColor: "#84cc16",
-      borderRadius: 8,
-      maxBarThickness: 6,
-    },
-  ],
-}
+  const chartData = {
+    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    datasets: [
+      {
+        label: "Visitors",
+        data: [28, 32, 25, 30, 22, 18, 15, 20, 26, 24, 19, 29],
+        backgroundColor: "#84cc16",
+        borderRadius: 2,
+        maxBarThickness: 40,
+      },
+    ],
+  }
 
   const chartOptions = {
     responsive: true,

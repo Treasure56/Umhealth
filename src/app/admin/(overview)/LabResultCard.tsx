@@ -1,5 +1,5 @@
 import OverviewCard from "@/components/admin/OverviewCard";
-import AppIcons from "../utils/AppIcons";
+import AppIcons from "../../utils/AppIcons";
 
 export default function LabResultCard() {
     return (

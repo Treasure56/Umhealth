@@ -1,6 +1,5 @@
 import OverviewCard from "@/components/admin/OverviewCard";
-import { MdGroups } from "react-icons/md";
-import AppIcons from "../utils/AppIcons";
+import AppIcons from "../../utils/AppIcons";
 
 export default function PendingBookings() {
     return (
