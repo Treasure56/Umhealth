@@ -1,4 +1,4 @@
-import OverviewCard from "@/components/admin/OverviewCard";
+import OverviewCard from "@/components/user/OverviewCard";
 import AppIcons from "../../utils/AppIcons";
 
 export default function TotalVisitsCard() {

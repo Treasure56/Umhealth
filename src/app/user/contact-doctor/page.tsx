@@ -1,4 +1,4 @@
-import DoctorCard from "@/components/admin/DoctorCard";
+import DoctorCard from "@/components/user/DoctorCard";
 import { dummyDoctors } from "@/type/doctor";
 
 export default function Contact() {

@@ -1,4 +1,4 @@
-import ScheduleOverviewCard from "@/components/admin/ScheduleOverviewCard";
+import ScheduleOverviewCard from "@/components/user/ScheduleOverviewCard";
 import { dummySchedule } from "@/type/schedule";
 
 export default function Schedule() {

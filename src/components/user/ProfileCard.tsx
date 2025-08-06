@@ -12,7 +12,7 @@ export default function ProfileCard({
   location,
 }: User) {
   return (
-    <div className="max-w-md mx-auto bg-white rounded-md shadow p-4">
+    <div className="md:max-w-md mx-auto bg-white rounded-md shadow p-4">
       {/* Profile Section */}
       <div className="flex items-center gap-4 mb-4">
         <div className="relative w-10 h-10 rounded-full overflow-hidden bg-gray-200 flex-shrink-0">

@@ -1,4 +1,4 @@
-import NotificationCard from "@/components/admin/NotificationCard";
+import NotificationCard from "@/components/user/NotificationCard";
 import { dummyNotifications } from "@/type/notification";
 
 export default function Page() {

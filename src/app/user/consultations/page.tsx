@@ -5,8 +5,8 @@ import ConsultationModal from "./ConsultationModal";
 export default function Page() {
   return (
     <main className="flex flex-col py-6 gap-5">
-      <div className="flex justify-between items-center w-full">
-        <h1 className="text-2xl font-bold">Pending Consultations</h1>
+      <div className="flex items-start md:justify-between flex-col-reverse md:flex-row md:items-center w-full">
+        <h1 className="md:text-2xl text-lg font-bold">Pending Consultations</h1>
         <ConsultationModal>
           <button className="btn btn-primary !bg-brand-primary border !border-brand-primary rounded-md ">
             <LuPlus className="text-white" />
