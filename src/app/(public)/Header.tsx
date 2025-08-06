@@ -5,7 +5,7 @@ import { LuFacebook, LuInstagram, LuLinkedin } from "react-icons/lu";
 
 export default function Header() {
   return (
-    <header className="grid grid-cols-3 items-center gap-4 p-4  ">
+    <header className="flex justify-between items-center gap-4 p-4  ">
       {/* Logo and Brand */}
       <Link href="/" className="flex items-center gap-2">
         <Image
@@ -13,31 +13,32 @@ export default function Header() {
           alt="UM-Health Logo"
           width={212}
           height={44}
-          className="w-auto h-10"
+          className="w-auto h-8"
           priority
         />
       </Link>
       {/* Welcome Text */}
-      <div className="text-center md:text-left flex-1">
+      <div className=" max-md:hidden text-center flex-1">
         <span className="text-gray-700 text-base md:text-lg">
           Welcome to{" "}
           <span className="font-semibold">UM-Health Patient Portal</span>
         </span>
       </div>
-      <div className="flex items-center gap-2">
+
+      <div className="flex items-center gap-1">
         {socials.map((social, index) => (
           <Link
             key={index}
             href={social.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-brand-primary p-2 rounded-full"
+            className="bg-brand-primary p-1 rounded-full"
           >
-            <social.icon className="text-white" />
+            <social.icon className="text-white text-sm" />
           </Link>
         ))}
 
-        <span className="ml-2 text-gray-700 text-sm md:text-base">
+        <span className=" text-gray-700 text-sm md:text-base max-md:text-xs max-md:hidden">
           @UM-Health
         </span>
       </div>

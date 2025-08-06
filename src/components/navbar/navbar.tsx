@@ -2,6 +2,7 @@
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { LuBell, LuMessageSquare } from "react-icons/lu";
+import PageTitle from "../user/PageTitle";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -20,7 +21,7 @@ export default function Navbar() {
 
   return (
     <div className="flex items-center justify-between px-6 py-3 border-b border-black/16  bg-white navbar">
-      <h2 className="font-semibold text-base text-gray-800">{getTitle()}</h2>
+     <PageTitle  className="font-semibold">{getTitle()}</PageTitle>
       <div className=" max-md:hidden flex items-center gap-6">
         <div className="relative">
           <span className="text-gray-500">

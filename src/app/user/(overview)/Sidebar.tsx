@@ -1,37 +1,48 @@
 "use client";
 
-import SidebarLink, { SidebarLinkProps } from "./SidebarLink";
-// import AppIcons from "@/components/AppIcons";
+import { useUserStore } from "@/store/userStore";
+import { paths } from "@/utils/paths";
 import { AppLogo } from "@/components/navbar/AppLogo";
+import { User } from "@/type/user";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
-import { FaX } from "react-icons/fa6";
+import { useEffect, useLayoutEffect } from "react";
 import { IoGrid } from "react-icons/io5";
+import { LuX } from "react-icons/lu";
 import { PiBellSimpleRingingBold, PiGearSixBold, PiHeadsetBold, PiPulseBold } from "react-icons/pi";
-import { paths } from "../../utils/paths";
+import SidebarLink, { SidebarLinkProps } from "./SidebarLink";
 
-export default function Sidebar() {
+export default function Sidebar({ user }: { user: User}) {
   const pathname = usePathname();
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+ const {
+    sidebarOpen: open,
+    setSidebar: setOpen,
+    setUser,
+    user: _user,
+  } = useUserStore();
 
-  // Close sidebar on route change
+  useLayoutEffect(() => {
+    setUser(user);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]);
+
   useEffect(() => {
-    setSidebarOpen(false);
+    setOpen(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
   return (
     <div
-      className={`w-full flex flex-col gap-4 fixed md:sticky bg-light top-0 left-0 h-screen p-4 overflow-y-auto transition-transform z-50 ${
-        sidebarOpen ? "max-md:translate-x-0" : "max-md:translate-x-[-110%]"
+      className={`w-full flex flex-col gap-4 fixed md:sticky bg-[#EDFFE4] top-0 left-0 h-screen p-4 overflow-y-auto transition-transform z-50 ${
+        open ? "max-md:translate-x-0" : "max-md:translate-x-[-110%]"
       }`}
     >
       <div className="flex justify-between items-center">
         <AppLogo />
         <button
-          onClick={() => setSidebarOpen(false)}
+          onClick={() => setOpen(false)}
           className="text-xl icon-btn md:hidden p-2"
         >
-          <FaX />
+          <LuX />
         </button>
       </div>
 

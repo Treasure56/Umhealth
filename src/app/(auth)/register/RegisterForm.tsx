@@ -1,5 +1,7 @@
 import AppInput, { AppInputProps } from "@/components/form/AppInput";
 import FormButton from "@/components/form/FormButton";
+import { paths } from "@/utils/paths";
+import Link from "next/link";
 
 export default function RegisterForm() {
   return (
@@ -12,6 +14,7 @@ export default function RegisterForm() {
       <FormButton className="btn btn-primary !py-3 rounded-md !text-base mt-2 ">
         Sign Up
       </FormButton>
+      <p className="text-base text-gray-500">Already have an account? <Link href={paths.login} className="text-brand-primary">Login</Link></p>
     </form>
   );
 }

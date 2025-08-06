@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { paths } from "@/app/utils/paths";
+import { paths } from "@/utils/paths";
 import Link from "next/link";
 
 const HOST = process.env.HOST || "";
