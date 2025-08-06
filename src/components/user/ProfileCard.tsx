@@ -1,5 +1,5 @@
 import { formatDate } from "@/components/functions/helpers";
-import { User } from "@/type/user";
+import { User } from "@/types/user";
 import Image from "next/image";
 import { GrLocation } from "react-icons/gr";
 import { LuCalendar } from "react-icons/lu";

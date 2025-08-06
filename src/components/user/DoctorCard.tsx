@@ -1,4 +1,4 @@
-import { Doctor } from "@/type/doctor";
+import { Doctor } from "@/types/doctor";
 import Image from "next/image";
 import Link from "next/link";
 import { AiFillMessage } from "react-icons/ai";

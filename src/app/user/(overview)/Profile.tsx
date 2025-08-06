@@ -1,5 +1,5 @@
 import ProfileCard from "@/components/user/ProfileCard";
-import { dummyUser } from "@/type/user";
+import { dummyUser } from "@/types/user";
 
 
 export default function Profile() {

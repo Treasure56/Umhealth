@@ -1,4 +1,4 @@
-import { User } from '@/type/user';
+import { User } from '@/types/user';
 import {create} from 'zustand';
 
 export type UserState = {

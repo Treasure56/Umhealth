@@ -1,6 +1,6 @@
 'use client'
 
-import { ActionResponse } from "@/type";
+import { ActionResponse } from "@/types";
 import { useFormStatus } from "react-dom";
 
 export type FormMessageProps = {

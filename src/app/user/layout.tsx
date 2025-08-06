@@ -1,9 +1,9 @@
 import Sidebar from "./(overview)/Sidebar";
-import { AppLayoutProps } from "@/type";
+import { AppLayoutProps } from "@/types";
 import { redirect, RedirectType } from "next/navigation";
 import { paths } from "../../utils/paths";
 import Navbar from "@/components/navbar/navbar";
-import { User } from "@/type/user";
+import { User } from "@/types/user";
 
 export default function Layout({ children }: AppLayoutProps) {
   const user:User|"error" = {};

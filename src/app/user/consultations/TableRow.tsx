@@ -1,5 +1,5 @@
 import { TableCell } from "@/components/ui/table";
-import { Consultation } from "@/type/consultation";
+import { Consultation } from "@/types/consultation";
 import { LuTrash2 } from "react-icons/lu";
 
 export default function DataTableRow({doctorDepartment, doctorName, reasonForVisit, visitDate, visitTime, visitorId}: Consultation) {

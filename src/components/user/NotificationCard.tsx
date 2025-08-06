@@ -1,4 +1,4 @@
-import { Notification } from "@/type/notification";
+import { Notification } from "@/types/notification";
 import { LuX } from "react-icons/lu";
 
 /* eslint-disable @next/next/no-img-element */

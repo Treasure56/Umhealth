@@ -13,7 +13,7 @@ import {
 } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import clsx from "clsx";
-import { ANY } from "@/type";
+import { ANY } from "@/types";
 
 export type AppInputProps = {
   icon?: React.ReactNode;

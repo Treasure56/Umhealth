@@ -1,6 +1,6 @@
 import { TableHead, TableHeader, TableRow, Table, TableBody } from "@/components/ui/table";
 import DataTableRow from "./TableRow";
-import { dummyConsultations } from "@/type/consultation";
+import { dummyConsultations } from "@/types/consultation";
 
 export default function DataTable() {
     const consultations = dummyConsultations

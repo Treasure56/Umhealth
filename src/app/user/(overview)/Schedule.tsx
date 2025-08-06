@@ -1,5 +1,5 @@
 import ScheduleOverviewCard from "@/components/user/ScheduleOverviewCard";
-import { dummySchedule } from "@/type/schedule";
+import { dummySchedule } from "@/types/schedule";
 
 export default function Schedule() {
     const schedule = dummySchedule;

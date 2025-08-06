@@ -3,7 +3,7 @@
 import { useUserStore } from "@/store/userStore";
 import { paths } from "@/utils/paths";
 import { AppLogo } from "@/components/navbar/AppLogo";
-import { User } from "@/type/user";
+import { User } from "@/types/user";
 import { usePathname } from "next/navigation";
 import { useEffect, useLayoutEffect } from "react";
 import { IoGrid } from "react-icons/io5";

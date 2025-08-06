@@ -1,5 +1,5 @@
 import DoctorCard from "@/components/user/DoctorCard";
-import { dummyDoctors } from "@/type/doctor";
+import { dummyDoctors } from "@/types/doctor";
 
 export default function Contact() {
     const doctor = dummyDoctors

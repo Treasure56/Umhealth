@@ -1,5 +1,5 @@
 import FileCard from "@/components/user/FileCard";
-import { dummyUser } from "@/type/user";
+import { dummyUser } from "@/types/user";
 
  const user = dummyUser
 export default function PatientRecord() {
@@ -10,7 +10,7 @@ export default function PatientRecord() {
       </h2>
       <div className="flex flex-col gap-3 max-h-64 overflow-y-auto">
         {user.records?.map((record) => (
-          <FileCard key={record} records={record} />
+          <FileCard key={record._id} records={record} />
         ))}
        
       </div>

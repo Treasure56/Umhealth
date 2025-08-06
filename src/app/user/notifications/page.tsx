@@ -1,5 +1,5 @@
 import NotificationCard from "@/components/user/NotificationCard";
-import { dummyNotifications } from "@/type/notification";
+import { dummyNotifications } from "@/types/notification";
 
 export default function Page() {
   const notifications = dummyNotifications;

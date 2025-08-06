@@ -1,4 +1,4 @@
-import { Schedule } from "@/type/schedule";
+import { Schedule } from "@/types/schedule";
 
 export default function ScheduleOverviewCard({
   visitDate,
