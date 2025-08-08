@@ -1,4 +1,5 @@
 import { Doctor } from "@/types/doctor";
+import { paths } from "@/utils/paths";
 import Image from "next/image";
 import Link from "next/link";
 import { AiFillMessage } from "react-icons/ai";
@@ -12,6 +13,7 @@ export default function DoctorCard({
   image,
   name,
   phone,
+   id
 }: Doctor) {
   return (
     <div className="bg-[#EDFFE4] rounded-xl shadow p-4  font-sans">
@@ -38,7 +40,7 @@ export default function DoctorCard({
             <FaPhoneAlt className="text-white" />
           </Link>
           <Link
-            href={`mailto:${email}`}
+            href={paths.message(id.toString())}
             className="bg-[#FFAE00] rounded-md p-2 shadow transition flex-1 flex justify-center"
           >
             <AiFillMessage className="text-white" />

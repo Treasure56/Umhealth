@@ -1,5 +1,5 @@
 export type Doctor = {
-  id: number;
+  id: string;
   name: string;
   email: string;
   department: string;
@@ -10,7 +10,7 @@ export type Doctor = {
 
 export const dummyDoctors: Doctor[] = [
   {
-    id: 1,
+    id: "1",
     name: "Dr. John Doe",
     email: "johndoe@example.com",
     department: "Cardiology",
@@ -19,7 +19,7 @@ export const dummyDoctors: Doctor[] = [
     image: "/images/profile.png",
   },
   {
-    id: 2,
+    id: "2",
     name: "Dr. Jane Doe",
     email: "janedoe@example.com",
     department: "Neurology",
@@ -28,7 +28,7 @@ export const dummyDoctors: Doctor[] = [
     image: "/images/profile.png",
   },
   {
-    id: 3,
+    id: "3",
     name: "Dr. Smith Doe",
     email: "smithdoe@example.com",
     department: "Gastroenterology",
@@ -38,7 +38,7 @@ export const dummyDoctors: Doctor[] = [
     image: "/images/profile.png",
   },
   {
-    id: 4,
+    id: "4",
     name: "Dr. Michael Doe",
     email: "michaeldoe@example.com",
     department: "Urology",
@@ -47,7 +47,7 @@ export const dummyDoctors: Doctor[] = [
     image: "/images/profile.png",
   },
   {
-    id: 5,
+    id: "5",
     name: "Dr. David Doe",
     email: "daviddoe@example.com",
     department: "Ophthalmology",
@@ -57,7 +57,7 @@ export const dummyDoctors: Doctor[] = [
     image: "/images/profile.png",
   },
   {
-    id: 6,
+    id: "6",
     name: "Dr. James Doe",
     email: "jamesdoe@example.com",
     department: "Orthopedics",
