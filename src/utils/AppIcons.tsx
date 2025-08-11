@@ -1,5 +1,3 @@
-import { Book } from "lucide-react";
-import App from "next/app";
 
 const AppIcons = {
   Visits: ({ className }: { className?: string }) => (

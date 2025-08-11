@@ -9,4 +9,6 @@ export const paths = {
   notifications: "/user/notifications",
   profile: "/user/profile",
   message: (slug: string) => `/user/contact-doctor/${slug}`,
+  doctorLogin: "/doctor/login",
+  doctorRegister: "/doctor/register"
 };

@@ -7,6 +7,7 @@ export type User = {
   location?: string;
   first_consultation?: string;
   last_consultation?: string;
+  avatar?: string;
   records?: UserRecord[];
 };
 
@@ -26,6 +27,7 @@ export const dummyUser: User = {
   location: "Lagos, Nigeria",
   first_consultation: "2022-01-01",
   last_consultation: "2022-01-01",
+  avatar: "/images/profile.png",
   records: [
     {
       type: "Lab Test",
@@ -47,3 +49,12 @@ export const dummyUser: User = {
     },
   ],
 };
+
+export const dummyUsers = Array(5)
+  .fill(1)
+  .map((_, i) => {
+    return {
+      ...dummyUser,
+      id: String(i + 1),
+    };
+  });

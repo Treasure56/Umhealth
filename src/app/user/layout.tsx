@@ -3,10 +3,10 @@ import { AppLayoutProps } from "@/types";
 import { redirect, RedirectType } from "next/navigation";
 import { paths } from "../../utils/paths";
 import Navbar from "@/components/navbar/navbar";
-import { User } from "@/types/user";
+import { dummyUser, User } from "@/types/user";
 
 export default function Layout({ children }: AppLayoutProps) {
-  const user:User|"error" = {};
+  const user:User|"error" = dummyUser;
   if (!user || user === "error") redirect(paths.login, RedirectType.replace);
 
   return (

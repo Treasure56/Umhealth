@@ -9,6 +9,7 @@ import Image from "next/image";
 import { FiSend } from "react-icons/fi";
 import { MessageItemComponent } from "@/components/ui/ChatBubble";
 import { dummyDoctors } from "@/types/doctor";
+import { dummyUsers } from "@/types/user";
 
 export interface ChatMessage {
   text: string;
@@ -28,13 +29,13 @@ const ChatView: FC = () => {
   const [inputText, setInputText] = useState("");
   const [isConnected, setIsConnected] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const { user } = useUserStore();
+  const doctor = dummyDoctors[0];
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const thisUserId = user?.id.toString()+"user";
-  const doctor = dummyDoctors.find((doc) => doc.id === slug);
+  const thisUserId = doctor?.id.toString()+"doctor";
+  const user = dummyUsers.find((doc) => doc.id === slug);
   const channelName = useMemo(
-    () => (!user?.id ? null : `doctor-${slug}-user-${user?.id}`),
-    [slug, user?.id]
+    () => (!user?.id ? null : `doctor-${doctor.id}-user-${user?.id}`),
+    [slug, user?.id, doctor.id]
   );
 
   useEffect(() => {
@@ -132,23 +133,23 @@ const ChatView: FC = () => {
     }
   };
 
-  if (!doctor || !user) return null;
+  if (!user || !doctor) return null;
 
   return (
     <div className="flex flex-col h-screen bg-white">
       <div className="flex items-center gap-3 px-8 py-6 border-b border-gray-200">
         <Image
-          src={doctor.avatar}
-          alt={doctor.name}
+          src={user.avatar}
+          alt={user.name}
           width={48}
           height={48}
           className="rounded-full object-cover"
         />
         <div>
           <div className="font-semibold text-lg text-[#162447]">
-            {doctor.name}
+            {user.name}
           </div>
-          <div className="text-gray-400 text-sm">{doctor.email}</div>
+          <div className="text-gray-400 text-sm">{user.email}</div>
         </div>
       </div>
 
@@ -168,8 +169,8 @@ const ChatView: FC = () => {
             <MessageItemComponent
               key={item.id}
               item={item}
+              person={item.message.sender === thisUserId ? doctor : user}
               isCurrentUser={item.message.sender === thisUserId}
-              person={item.message.sender === thisUserId ? user : doctor}
             />
           ))}
           <div ref={messagesEndRef} />

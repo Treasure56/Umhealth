@@ -16,7 +16,9 @@ export default function Navbar() {
     if (pathname === "/user/settings") return "Settings";
     if (pathname === "/user/notifications") return "Notifications";
     if (pathname === "/user/profile") return "Profile";
-    return "Page";
+    if (pathname.startsWith("/user/contact-doctor/")) return "Contact Doctor";
+
+    return "page";
   };
 
   return (
