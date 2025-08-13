@@ -5,7 +5,7 @@ export type Doctor = {
   department: string;
   phone: string;
   about: string;
-  avatar: string;
+  image: string;
 };
 
 export const dummyDoctors: Doctor[] = [
@@ -16,7 +16,7 @@ export const dummyDoctors: Doctor[] = [
     department: "Cardiology",
     phone: "08012345678",
     about: "Dr. John Doe is a Cardiologist with over 10 years of experience.",
-    avatar: "/images/success.png",
+    image: "/images/success.png",
   },
   {
     id: "2",
@@ -25,7 +25,7 @@ export const dummyDoctors: Doctor[] = [
     department: "Neurology",
     phone: "08012345679",
     about: "Dr. Jane Doe is a Neurologist with over 10 years of experience.",
-   avatar: "/images/success.png",
+   image: "/images/success.png",
   },
   {
     id: "3",
@@ -35,7 +35,7 @@ export const dummyDoctors: Doctor[] = [
     phone: "08012345670",
     about:
       "Dr. Smith Doe is a Gastroenterologist with over 10 years of experience.",
-    avatar: "/images/success.png",
+    image: "/images/success.png",
   },
   {
     id: "4",
@@ -44,7 +44,7 @@ export const dummyDoctors: Doctor[] = [
     department: "Urology",
     phone: "08012345671",
     about: "Dr. Michael Doe is a Urologist with over 10 years of experience.",
-    avatar: "/images/profile.png",
+    image: "/images/profile.png",
   },
   {
     id: "5",
@@ -54,7 +54,7 @@ export const dummyDoctors: Doctor[] = [
     phone: "08012345672",
     about:
       "Dr. David Doe is an Ophthalmologist with over 10 years of experience.",
-    avatar: "/images/profile.png",
+    image: "/images/profile.png",
   },
   {
     id: "6",
@@ -63,6 +63,6 @@ export const dummyDoctors: Doctor[] = [
     department: "Orthopedics",
     phone: "08012345673",
     about: "Dr. James Doe is an Orthopedist with over 10 years of experience.",
-    avatar: "/images/profile.png",
+    image: "/images/profile.png",
   },
 ];

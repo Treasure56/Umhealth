@@ -24,8 +24,8 @@ export const MessageItemComponent: FC<{ item: MessageItem; isCurrentUser: boolea
     >
       {!isCurrentUser && (
         <img
-          src={person.avatar}
-          alt={person.name}
+          src={person.image}
+          alt={person.first_name}
           width={32}
           height={32}
           className="rounded-full object-cover"
@@ -49,8 +49,8 @@ export const MessageItemComponent: FC<{ item: MessageItem; isCurrentUser: boolea
       </div>
       {isCurrentUser && (
         <img
-          src={person.avatar}
-          alt={person.name}
+          src={person.image}
+          alt={person.first_name}
           width={32}
           height={32}
           className="rounded-full object-cover"

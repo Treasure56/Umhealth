@@ -1,9 +1,9 @@
-import { TableHead, TableHeader, TableRow, Table, TableBody } from "@/components/ui/table";
+import { $fetchAllConsultations } from "@/action/user/fetchAllConsultation";
+import { Table, TableBody, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import DataTableRow from "./TableRow";
-import { dummyConsultations } from "@/types/consultation";
 
-export default function DataTable() {
-    const consultations = dummyConsultations
+export default async function DataTable() {
+    const consultations = await $fetchAllConsultations();
   return (
     <div className="w-full overflow-x-auto">
       <Table className="mt-4 min-w-[1000px] ">
@@ -21,7 +21,7 @@ export default function DataTable() {
       <TableBody>
         {
             consultations.map(consultation => (
-                <DataTableRow key={consultation._id} {...consultation} />
+                <DataTableRow key={consultation.id} {...consultation} />
             ))
         }
        

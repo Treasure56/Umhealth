@@ -10,7 +10,7 @@ export default function DoctorCard({
   about,
   department,
   email,
-  avatar: image,
+  image: image,
   name,
   phone,
    id

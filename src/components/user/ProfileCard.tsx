@@ -7,7 +7,7 @@ import { LuCalendar } from "react-icons/lu";
 export default function ProfileCard({
   first_consultation,
   email,
-  name,
+  name: name,
   last_consultation,
   location,
 }: User) {
@@ -23,15 +23,15 @@ export default function ProfileCard({
             className="object-cover  rounded-full"
           />
         </div>
-        <div>
+        <div className="flex-1">
           <h1 className="text-xl font-semibold text-gray-900 mb-1">{name}</h1>
-          <p className="text-gray-500 text-sm">{email}</p>
+          <p className="text-gray-500 text-sm line-clamp-1 truncate">{email}</p>
         </div>
       </div>
 
       {/* Location Section */}
       <div className="flex items-center gap-3 mb-6">
-        <GrLocation className="text-gray-400"/>
+        <GrLocation className="text-gray-400" />
         <div>
           <h2 className="text-gray-900 font-medium mb-1">Location</h2>
           <p className="text-gray-500 text-sm leading-relaxed">{location}</p>
@@ -51,10 +51,12 @@ export default function ProfileCard({
 
       {/* Last Consultation Section */}
       <div className="flex items-center gap-3">
-         <LuCalendar className="text-gray-400" />
+        <LuCalendar className="text-gray-400" />
         <div>
           <h2 className="text-gray-900 font-medium mb-1">Last Consultation</h2>
-          <p className="text-gray-500 text-sm">{formatDate(last_consultation || "")}</p>
+          <p className="text-gray-500 text-sm">
+            {formatDate(last_consultation || "")}
+          </p>
         </div>
       </div>
     </div>

@@ -2,14 +2,35 @@ export type User = {
   id: number;
   name: string;
   email: string;
-  created_at: string;
-  updated_at: string;
+  date_joined: string;
+  last_login?: string;
   location?: string;
   first_consultation?: string;
   last_consultation?: string;
   avatar?: string;
   records?: UserRecord[];
 };
+
+type Consultation = {
+  visitDate: string;
+  ReasonForVisit: string;
+  staff: string;
+};
+
+type MonthlyVisit = {
+  month: string;
+  count: number;
+};
+
+
+export type UserWithDashboard = User &{
+  latest_consultations: Consultation[];
+  total_visits: number;
+  total_met: number;
+  total_pending: number;
+  total_results_viewed: number;
+  monthly_visits: MonthlyVisit[];
+}
 
 export type UserRecord = {
   _id: string;
@@ -22,8 +43,8 @@ export const dummyUser: User = {
   id: 1,
   name: "Dominic Evans",
   email: "m4o4k@example.com",
-  created_at: "2022-01-01",
-  updated_at: "2022-01-01",
+  date_joined: "2022-01-01",
+  last_login: "2022-01-01",
   location: "Lagos, Nigeria",
   first_consultation: "2022-01-01",
   last_consultation: "2022-01-01",

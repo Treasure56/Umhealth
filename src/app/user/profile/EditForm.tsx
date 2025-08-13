@@ -1,58 +1,55 @@
+"use client";
+import { $updateAccount } from "@/action/user/updateAccount";
 import AppInput, { AppInputProps } from "@/components/form/AppInput";
 import FormButton from "@/components/form/FormButton";
+import { FormMessage } from "@/components/form/FromMessage";
+import { useAppActionState } from "@/hooks/useActionState";
+import { useUserStore } from "@/store/userStore";
 
 export default function EditForm() {
+  const user = useUserStore((s) => s.user);
+  const formFields: AppInputProps[] = [
+    {
+      name: "first_name",
+      title: "First Name",
+      placeholder: "Enter your name",
+        value: user?.name.split(" ")[0],
+      },
+    {
+      name: "last_name",
+      title: "Last Name",
+      placeholder: "Enter your last name",
+      value: user?.name.split(" ").slice(1).join(" "),
+      },
+    {
+      name: "display_picture",
+      title: "Upload Display Photo",
+      placeholder: "Upload your display photo",
+      type: "file",
+    },
+    {
+      name: "address",
+      title: "Address",
+      placeholder: "Enter your address",
+      value: user?.location,
+    },
+  ];
+
+  const { state, action, submitting } = useAppActionState($updateAccount);
   return (
-    <form className="flex flex-col gap-4">
-      <div className="grid md:grid-cols-2 gap-4">
+    <form action={action} className="flex flex-col gap-4 w-full max-w-[600px]">
+      <FormMessage res={state} />
+      <div className="grid  gap-4">
         {formFields.map((field) => (
-          <AppInput key={field.name} {...field} />
+          <AppInput key={field.name} {...field} error={state.fieldErrors?.[field.name]} />
         ))}
       </div>
-      <FormButton className="btn btn-primary !py-3 rounded-md !text-base mt-2 ">
+      <FormButton
+        loading={submitting}
+        className="btn btn-primary !py-3 rounded-md !text-base mt-2 "
+      >
         save
       </FormButton>
     </form>
   );
 }
-
-const formFields: AppInputProps[] = [
-  {
-    name: "fullname",
-    title: "Full Name",
-    placeholder: "Enter your full name",
-  },
-  {
-    name: "email",
-    title: "Email Address",
-    placeholder: "Enter your email address",
-  },
-  {
-    name: "phone",
-    title: "Phone Number",
-    placeholder: "Enter your phone number",
-  },
-  {
-    name: "displayphoto",
-    title: "Upload Display Photo",
-    placeholder: "Upload your display photo",
-    type: "file",
-  },
-  {
-    name: "address",
-    title: "Address",
-    placeholder: "Enter your address",
-  },
-  {
-    name: "password",
-    title: "Password",
-    placeholder: "Enter your password",
-    type: "password",
-  },
-  {
-    name: "confirmpassword",
-    title: "Confirm Password",
-    placeholder: "Confirm your password",
-    type: "password",
-  },
-];

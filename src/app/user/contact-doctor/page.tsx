@@ -1,8 +1,8 @@
+import { $fetchAllDoctors } from "@/action/user/fetchAllDoctors";
 import DoctorCard from "@/components/user/DoctorCard";
-import { dummyDoctors } from "@/types/doctor";
 
-export default function Contact() {
-    const doctor = dummyDoctors
+export default async function Contact() {
+    const doctor = await $fetchAllDoctors();
     return (
         <div className="grid md:grid-cols-3 gap-4">
           {doctor.map((doc) => (

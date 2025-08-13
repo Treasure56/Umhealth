@@ -138,7 +138,7 @@ const ChatView: FC = () => {
     <div className="flex flex-col h-screen bg-white">
       <div className="flex items-center gap-3 px-8 py-6 border-b border-gray-200">
         <Image
-          src={doctor.avatar}
+          src={doctor.image}
           alt={doctor.name}
           width={48}
           height={48}
