@@ -17,7 +17,7 @@ export function FormMessage({
     return (
         <>
         {
-            res && res.error && <p className="text-red-900 bg-red-50  border border-red-800 p-2 rounded-md">{res.error}</p>
+            res && res.error && <p className="text-red-900 bg-red-50  border border-red-800 p-2 rounded-md" >{res.error}</p>
         }
         {
             res && res.success && <p className="text-green-900 bg-green-50  border border-green-800 p-2 rounded-md">{res.success}</p>

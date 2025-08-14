@@ -1,5 +1,6 @@
 "use client";
 
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { MessageItemComponent } from "@/components/ui/ChatBubble";
 import { useUserStore } from "@/store/userStore";
 import { ANY } from "@/types";
@@ -133,17 +134,21 @@ const ChatView: FC<{ doctor: Doctor }> = ({ doctor }) => {
   };
 
   if (!doctor || !user) return null;
+  const initials = doctor.name?.charAt(0)
 
   return (
     <div className="flex flex-col h-screen bg-white">
       <div className="flex items-center gap-3 px-8 py-6 border-b border-gray-200">
-        <Image
-          src={doctor.image}
-          alt={doctor.name}
-          width={48}
-          height={48}
-          className="rounded-full object-cover aspect-square overflow-hidden bg-gray-200"
-        />
+       <Avatar className="h-10 w-10 bg-gray-700 flex-shrink-0">
+            <AvatarImage
+              src={doctor.email}
+              alt={doctor.name}
+              className="object-cover"
+            />
+            <AvatarFallback className="bg-brand-secondary/50 text-sm font-semibold text-gray-100">
+              {initials}
+            </AvatarFallback>
+          </Avatar>
         <div>
           <div className="font-semibold text-lg text-[#162447]">
             {doctor.name}

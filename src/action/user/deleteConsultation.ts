@@ -5,6 +5,8 @@ import { appCookies } from "@/constants/cookies";
 import { formDataToObject } from "@/functions/helpers";
 import { ActionResponse } from "@/types";
 import { api } from "@/utils/apis";
+import { paths } from "@/utils/paths";
+import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
 
 export async function $deleteConsultation(
@@ -27,6 +29,8 @@ export async function $deleteConsultation(
         error: "Failed to delete consultation",
       };
 
+      revalidatePath(paths.consultations)
+      revalidatePath(paths.user)
     return {
       success: "Consultation deleted",
     };

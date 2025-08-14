@@ -4,7 +4,7 @@ import { AuthFetch } from "@/utils/authFetch";
 
 export async function $fetchDashboardData(): Promise<UserWithDashboard> {
     const res = await AuthFetch.get(api.user.fetchDashboardData);
-    console.log({res})
+    // console.log({res})
     if (!res) {
         throw new Error("Failed to fetch dashboard data");
     }if (!res.id) {

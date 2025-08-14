@@ -2,6 +2,7 @@ import { MessageItem } from "@/app/user/contact-doctor/[slug]/ChatView";
 import { Doctor } from "@/types/doctor";
 import { User } from "@/types/user";
 import { FC } from "react";
+import { Avatar, AvatarFallback, AvatarImage } from "./avatar";
 
 /* eslint-disable @next/next/no-img-element */
 export const MessageItemComponent: FC<{ item: MessageItem; isCurrentUser: boolean, person: User|Doctor }> = ({
@@ -22,6 +23,8 @@ export const MessageItemComponent: FC<{ item: MessageItem; isCurrentUser: boolea
       image: (person as User)?.display_picture ?? (person as Doctor)?.image ?? "",
     }
     
+
+    const initials = person.name?.charAt(0)
   return (
     <div
       className={`flex items-end gap-2 ${
@@ -29,13 +32,16 @@ export const MessageItemComponent: FC<{ item: MessageItem; isCurrentUser: boolea
       }`}
     >
       {!isCurrentUser && (
-        <img
-          src={p.image}
-          alt={person.name}
-          width={32}
-          height={32}
-          className="rounded-full object-cover overflow-hidden aspect-square bg-gray-200"
-        />
+       <Avatar className="h-10 w-10 bg-gray-700 flex-shrink-0">
+            <AvatarImage
+              src={p.image}
+              alt={person.name}
+              className="object-cover"
+            />
+            <AvatarFallback className="bg-brand-secondary text-sm font-semibold text-gray-100">
+              {initials}
+            </AvatarFallback>
+          </Avatar>
       )}
       <div
         className={`rounded-xl px-4 py-3 mb-2 max-w-[70vw] md:max-w-lg shadow-sm ${
@@ -54,13 +60,16 @@ export const MessageItemComponent: FC<{ item: MessageItem; isCurrentUser: boolea
         </div>
       </div>
       {isCurrentUser && (
-        <img
-          src={p.image}
-          alt={person.name}
-          width={32}
-          height={32}
-          className="rounded-full object-cover overflow-hidden aspect-square bg-gray-200"
-        />
+        <Avatar className="h-10 w-10 bg-gray-700 flex-shrink-0">
+            <AvatarImage
+              src={p.image}
+              alt={person.name}
+              className="object-cover"
+            />
+            <AvatarFallback className="bg-brand-secondary text-sm font-semibold text-gray-100">
+              {initials}
+            </AvatarFallback>
+          </Avatar>
       )}
     </div>
   );

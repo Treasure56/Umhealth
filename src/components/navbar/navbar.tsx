@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { LuBell } from "react-icons/lu";
 import PageTitle from "../user/PageTitle";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -25,6 +26,7 @@ export default function Navbar() {
   };
 
   const user = useUserStore(s=>s.user);
+  const initials = user?.name?.charAt(0);
 
   return (
     <div className="flex items-center justify-between px-6 py-3 border-b border-black/16  bg-white navbar">
@@ -47,13 +49,16 @@ export default function Navbar() {
         {/* <span className="text-gray-500 text-sm">Need Help?</span> */}
         {/* Divider */}
         <div className="h-6 w-px bg-gray-200 mx-2" />
-        <img
-          src={user?.display_picture ?? "/placeholder.svg?height=400&width=300"}
-          alt="Profile"
-          width={32}
-          height={32}
-          className="rounded-full border size-10 flex-shrink-0 border-gray-300 overflow-hidden aspect-square bg-gray-200"
-        />
+       <Avatar className="h-10 w-10 bg-gray-700 flex-shrink-0">
+            <AvatarImage
+              src={user?.date_joined}
+              alt={user?.name}
+              className="object-cover"
+            />
+            <AvatarFallback className="bg-brand-secondary text-sm font-semibold text-gray-100">
+              {initials}
+            </AvatarFallback>
+          </Avatar>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import { TableCell } from "@/components/ui/table";
+import { TableCell, TableRow } from "@/components/ui/table";
 import { Consultation } from "@/types/consultation";
 import { LuTrash2 } from "react-icons/lu";
 import DeleteModal from "./DeleteModal";
@@ -14,7 +14,7 @@ export default function DataTableRow(consultation: Consultation) {
   } = consultation;
   
   return (
-    <div className="grid grid-cols-7 items-center gap-4 p-2  transition-colors border-b border-gray-200">
+    <TableRow className="grid grid-cols-7 items-center gap-4 p-2  transition-colors border-b border-gray-200">
       <TableCell className="text-gray-700">{visitorId}</TableCell>
       <TableCell className="text-gray-700">{doctorName}</TableCell>
       <TableCell className="text-gray-700">{doctorDepartment}</TableCell>
@@ -28,6 +28,6 @@ export default function DataTableRow(consultation: Consultation) {
           </button>
         </DeleteModal>
       </TableCell>
-    </div>
+    </TableRow>
   );
 }

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { $bookConsultation } from "@/action/user/bookConsultation";
 import AppInput from "@/components/form/AppInput";
 import AppSelect from "@/components/form/AppSelect";
@@ -13,15 +13,23 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { useAppActionState } from "@/hooks/useActionState";
+import { Doctor } from "@/types/doctor";
 import { ArrowRight } from "lucide-react";
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 
 export default function ConsultationModal({
   children,
+  doctors,
 }: {
   children: ReactNode;
+  doctors: Doctor[];
 }) {
-  const { state, action, submitting, formKey, modalProps } = useAppActionState($bookConsultation);
+  const { state, action, submitting, formKey, modalProps } =
+    useAppActionState($bookConsultation);
+  const [departments] = useState(() => {
+    return Array.from(new Set(doctors.map((doc) => doc.department)));
+  });
+  const [dep, setDep] = useState("");
 
   return (
     <Dialog {...modalProps}>
@@ -29,19 +37,21 @@ export default function ConsultationModal({
       <DialogContent className="overflow-y-auto max-h-[90vh]">
         <DialogHeader>
           <DialogTitle>Book New Consultation</DialogTitle>
-          <DialogDescription>
+          <DialogDescription asChild>
             <form key={formKey} action={action} className="flex flex-col gap-4">
               <FormMessage res={state} />
-              <AppInput
-                name="doctor_name"
-                placeholder="Enter your full name"
-                title="Full Name"
-              />
               <AppSelect
                 name="doctor_department"
-                title="Select Doctor"
-                options={["Cardiology", "Dermatology", "Pediatrics"]}
+                title="Select Doctor Department"
+                options={departments}
+                onChange={setDep}
+                value={dep}
               />
+              {dep && <AppSelect
+                name="doctor_name"
+                title="Select Doctor"
+                options={doctors.filter((doc) => doc.department === dep).map((doc) => doc.name)}
+              />}
               <AppInput
                 placeholder=""
                 name="visit_date"

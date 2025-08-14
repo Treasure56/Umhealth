@@ -1,8 +1,10 @@
+/* eslint-disable @next/next/no-img-element */
 import { formatDate } from "@/components/functions/helpers";
 import { User } from "@/types/user";
-import Image from "next/image";
 import { GrLocation } from "react-icons/gr";
 import { LuCalendar } from "react-icons/lu";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import image from "next/image";
 
 export default function ProfileCard({
   first_consultation,
@@ -10,22 +12,28 @@ export default function ProfileCard({
   name: name,
   last_consultation,
   location,
+  display_picture,
 }: User) {
+  const initials = name?.charAt(0);
   return (
     <div className="md:max-w-md mx-auto bg-white rounded-md shadow p-4">
       {/* Profile Section */}
       <div className="flex items-center gap-4 mb-4">
         <div className="relative w-10 h-10 rounded-full overflow-hidden bg-gray-200 flex-shrink-0">
-          <Image
-            src="/images/profile.png"
-            alt="Dominic Evans"
-            fill
-            className="object-cover  rounded-full"
-          />
+          <Avatar className="h-10 w-10 bg-gray-700 flex-shrink-0">
+            <AvatarImage
+              src={display_picture}
+              alt={name}
+              className="object-cover"
+            />
+            <AvatarFallback className="bg-brand-secondary text-sm font-semibold text-gray-100">
+              {initials}
+            </AvatarFallback>
+          </Avatar>
         </div>
         <div className="flex-1">
           <h1 className="text-xl font-semibold text-gray-900 mb-1">{name}</h1>
-          <p className="text-gray-500 text-sm line-clamp-1 truncate">{email}</p>
+          <p className="text-gray-500 text-xs line-clamp-1 truncate">{email}</p>
         </div>
       </div>
 

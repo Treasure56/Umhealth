@@ -1,6 +1,6 @@
 // import { HOST } from "@/utils/constants";
 import { Metadata } from "next";
-const HOST = ""
+const HOST = "https://umhealth.vercel.app"
 export type MetadataProps = {
   title: string;
   description: string;

@@ -35,7 +35,7 @@ export type UserWithDashboard = User &{
 export type UserRecord = {
   _id: string;
   createdAt: string; // Date of the record
-  type: string; // e.g., "Lab Test", "X-Ray", etc.
+  record_type: string; // e.g., "Lab Test", "X-Ray", etc.
   fileUrl: string; // URL to access the record file
 };
 
@@ -51,19 +51,19 @@ export const dummyUser: User = {
   display_picture: "/images/profile.png",
   records: [
     {
-      type: "Lab Test",
+      record_type: "Lab Test",
       _id: "kwnoek",
       createdAt: "2022-01-01",
       fileUrl: "https://example.com/lab-test.pdf",
     },
     {
-      type: "X-Ray",
+      record_type: "X-Ray",
       _id: "kwnok",
       createdAt: "2022-01-01",
       fileUrl: "https://example.com/x-ray.pdf",
     },
     {
-      type: "Prescription",
+      record_type: "Prescription",
       _id: "kwnoek",
       createdAt: "2022-01-01",
       fileUrl: "https://example.com/prescription.pdf",

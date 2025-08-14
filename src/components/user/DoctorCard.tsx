@@ -5,6 +5,7 @@ import Link from "next/link";
 import { AiFillMessage } from "react-icons/ai";
 import { FaPhoneAlt } from "react-icons/fa";
 import { LuUser } from "react-icons/lu";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 
 export default function DoctorCard({
   about,
@@ -15,16 +16,21 @@ export default function DoctorCard({
   phone,
    id
 }: Doctor) {
+  const initials = name?.charAt(0)
   return (
-    <div className="bg-[#EDFFE4] rounded-xl shadow p-4  font-sans">
+    <div className="bg-brand-primary/5 rounded-xl shadow p-4  font-sans">
       <div className="flex items-center gap-3 mb-2">
         <div className="relative w-10 h-10 rounded-full overflow-hidden bg-gray-200">
-          <Image
-            src={image}
-            alt={name}
-            fill
-            className="object-cover rounded-full"
-          />
+         <Avatar className="h-10 w-10 bg-gray-700 flex-shrink-0">
+            <AvatarImage
+              src={image}
+              alt={name}
+              className="object-cover"
+            />
+            <AvatarFallback className="bg-brand-secondary text-sm font-semibold text-gray-100">
+              {initials}
+            </AvatarFallback>
+          </Avatar>
         </div>
         <div>
           <h2 className="font-bold text-[#162447] text-base">{name}</h2>
