@@ -60,3 +60,42 @@ export default function DoctorCard({
     </div>
   );
 }
+
+
+export function DoctorCardSkeleton() {
+  return (
+    <div className="bg-gray-100 rounded-xl shadow p-4  font-sans">
+      <div className="flex items-center gap-3 mb-2">
+        <div className="relative w-10 h-10 rounded-full overflow-hidden bg-gray-200 animate-pulse">
+        </div>
+        <div>
+          <h2 className="font-bold bg-gray-200 text-base animate-pulse"></h2>
+          <p className="bg-gray-200 text-xs animate-pulse"></p>
+        </div>
+      </div>
+      <div className="flex gap-2 mb-3 w-full">
+        <div className="flex gap-2">
+          <div
+            className="bg-gray-200 rounded-md p-2 shadow transition flex-1 flex justify-center"
+          >
+            <div className="bg-gray-200" />
+          </div>
+          <div
+            className="bg-gray-200 rounded-md p-2 shadow transition flex-1 flex justify-center"
+          >
+            <div className="bg-gray-200" />
+          </div>
+        </div>
+        <div className="bg-gray-200 text-white p-2 rounded-md text-xs font-semibold flex-1 text-center">
+        </div>
+      </div>
+      <div className="mt-2 w-full">
+        <div className="flex items-center gap-2 mb-1">
+          <div className="bg-gray-200 w-6 h-6 rounded-full animate-pulse" />
+          <div className="font-semibold text-sm text-gray-700"></div>
+        </div>
+        <p className="bg-gray-200 text-xs leading-relaxed"></p>
+      </div>
+    </div>
+  );
+}

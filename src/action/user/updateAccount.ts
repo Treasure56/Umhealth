@@ -1,12 +1,9 @@
 "use server";
 
-import { COOKIE_MAX_AGE } from "@/constants";
-import { appCookies } from "@/constants/cookies";
 import { formDataToObject } from "@/functions/helpers";
 import { ActionResponse } from "@/types";
 import { api } from "@/utils/apis";
 import { AuthFetch } from "@/utils/authFetch";
-import { cookies } from "next/headers";
 import { z } from "zod";
 
 const schema = z.object({

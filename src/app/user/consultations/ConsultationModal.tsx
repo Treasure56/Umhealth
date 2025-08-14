@@ -25,7 +25,7 @@ export default function ConsultationModal({
 
   return (
     <Dialog {...modalProps}>
-      <DialogTrigger>{children}</DialogTrigger>
+      <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent className="overflow-y-auto max-h-[90vh]">
         <DialogHeader>
           <DialogTitle>Book New Consultation</DialogTitle>

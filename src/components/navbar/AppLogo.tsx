@@ -10,7 +10,7 @@ export function AppLogo({toWebsite = false}:{toWebsite?:boolean}) {
        
          <img
           src="/images/logo.png"
-          alt="cpms Logo"
+          alt="umhealth Logo"
           className="w-[134px] max-w-full"
         />
         

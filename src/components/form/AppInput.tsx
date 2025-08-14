@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import { HTMLAttributes, memo, useEffect, useRef, useState } from "react";
+import { HTMLAttributes, memo, useEffect, useState } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 
 export type AppInputProps = {
@@ -41,8 +41,7 @@ export default memo(function AppInput({
   // const [_type, setType] = useState(type);
   const [eyeOpen, setEyeOpen] = useState(false);
   const [val, setVal] = useState(value);
-  const [error, setError] = useState<string | null>(null);
-  const hasUpdated = useRef(false);
+  const [error] = useState<string | null>(null);
 
   useEffect(() => {
     setVal(value);

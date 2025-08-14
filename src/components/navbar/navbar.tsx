@@ -1,7 +1,10 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
+import { useUserStore } from "@/store/userStore";
+import { paths } from "@/utils/paths";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
-import Image from "next/image";
-import { LuBell, LuMessageSquare } from "react-icons/lu";
+import { LuBell } from "react-icons/lu";
 import PageTitle from "../user/PageTitle";
 
 export default function Navbar() {
@@ -21,33 +24,35 @@ export default function Navbar() {
     return "page";
   };
 
+  const user = useUserStore(s=>s.user);
+
   return (
     <div className="flex items-center justify-between px-6 py-3 border-b border-black/16  bg-white navbar">
      <PageTitle  className="font-semibold">{getTitle()}</PageTitle>
       <div className=" max-md:hidden flex items-center gap-6">
-        <div className="relative">
+        {/* <div className="relative">
           <span className="text-gray-500">
             <LuMessageSquare />
           </span>
-        </div>
+        </div> */}
         {/* Notification Icon with Badge */}
         <div className="relative">
-          <span className="text-gray-500">
+          <Link href={paths.notifications} className="text-gray-500">
             <LuBell />
-          </span>
-          <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
+          </Link>
+          {/* <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
             1
-          </span>
+          </span> */}
         </div>
-        <span className="text-gray-500 text-sm">Need Help?</span>
+        {/* <span className="text-gray-500 text-sm">Need Help?</span> */}
         {/* Divider */}
         <div className="h-6 w-px bg-gray-200 mx-2" />
-        <Image
-          src="/images/profile.png" 
+        <img
+          src={user?.display_picture ?? "/placeholder.svg?height=400&width=300"}
           alt="Profile"
           width={32}
           height={32}
-          className="rounded-full border border-gray-300"
+          className="rounded-full border size-10 flex-shrink-0 border-gray-300 overflow-hidden aspect-square bg-gray-200"
         />
       </div>
     </div>

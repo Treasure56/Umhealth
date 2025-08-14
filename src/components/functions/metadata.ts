@@ -1,6 +1,6 @@
-import { HOST } from "@/utils/constants";
+// import { HOST } from "@/utils/constants";
 import { Metadata } from "next";
-
+const HOST = ""
 export type MetadataProps = {
   title: string;
   description: string;
@@ -14,9 +14,9 @@ export function appMetadata({
   img,
 }: MetadataProps): Metadata {
   const keywords = [
-    "symphony",
-    "artist",
-    "invest in music",
+    "umhealth",
+    "hospital",
+    "consultation",
     ...title.split(" "),
     ...description.split(" "),
   ];
@@ -32,7 +32,7 @@ export function appMetadata({
     description,
     metadataBase: new URL(HOST),
     icons: ["/images/icon-rounded.png", "/images/icon.png"],
-    applicationName: "Symphony",
+    applicationName: "UMHealth",
     keywords: keywords,
     manifest: "/files/manifest.json",
     twitter: { title, description, images: [buildImg] },

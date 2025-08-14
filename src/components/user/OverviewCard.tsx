@@ -1,5 +1,4 @@
 import { ReactNode } from "react";
-import { FiCalendar } from "react-icons/fi";
 import { LuArrowDownRight, LuArrowUpRight } from "react-icons/lu";
 
 export type OverviewCardProps = {

@@ -1,4 +1,5 @@
-const HOST = "http://domevansbuchi.pythonanywhere.com"
+
+export const HOST = "http://domevansbuchi.pythonanywhere.com"
 
 export const api = {
     auth:{
@@ -12,6 +13,8 @@ export const api = {
         bookConsultation: `${HOST}/api/users/consultations/ `,
         fetchAllConsultations: `${HOST}/api/users/consultations/my/`,
         updateAccount: `${HOST}/api/users/account/update/`,
+        deleteConsultation: (id: string) => `${HOST}/api/users/delete-consultation/${id}/`,
+        deleteNotification: (id:string) => `${HOST}/api/users/delete-notification/${id}/`
     }
 
 }

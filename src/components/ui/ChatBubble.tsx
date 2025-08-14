@@ -16,6 +16,12 @@ export const MessageItemComponent: FC<{ item: MessageItem; isCurrentUser: boolea
       })
     : "";
 
+    console.log({person});
+    
+    const p = {
+      image: (person as User)?.display_picture ?? (person as Doctor)?.image ?? "",
+    }
+    
   return (
     <div
       className={`flex items-end gap-2 ${
@@ -24,11 +30,11 @@ export const MessageItemComponent: FC<{ item: MessageItem; isCurrentUser: boolea
     >
       {!isCurrentUser && (
         <img
-          src={person.image}
-          alt={person.first_name}
+          src={p.image}
+          alt={person.name}
           width={32}
           height={32}
-          className="rounded-full object-cover"
+          className="rounded-full object-cover overflow-hidden aspect-square bg-gray-200"
         />
       )}
       <div
@@ -49,11 +55,11 @@ export const MessageItemComponent: FC<{ item: MessageItem; isCurrentUser: boolea
       </div>
       {isCurrentUser && (
         <img
-          src={person.image}
-          alt={person.first_name}
+          src={p.image}
+          alt={person.name}
           width={32}
           height={32}
-          className="rounded-full object-cover"
+          className="rounded-full object-cover overflow-hidden aspect-square bg-gray-200"
         />
       )}
     </div>

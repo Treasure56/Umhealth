@@ -1,15 +1,15 @@
-/* eslint-disable @next/next/no-img-element */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
-import { useEffect, useRef, useState, FC, useMemo } from "react";
-import PubNub from "pubnub";
-import { useParams } from "next/navigation";
-import { useUserStore } from "@/store/userStore";
-import Image from "next/image";
-import { FiSend } from "react-icons/fi";
 import { MessageItemComponent } from "@/components/ui/ChatBubble";
-import { dummyDoctors } from "@/types/doctor";
-import { dummyUsers } from "@/types/user";
+import { useUserStore } from "@/store/userStore";
+import { ANY } from "@/types";
+import { Doctor } from "@/types/doctor";
+import Image from "next/image";
+import { useParams } from "next/navigation";
+import PubNub from "pubnub";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { FiSend } from "react-icons/fi";
 
 export interface ChatMessage {
   text: string;
@@ -22,20 +22,21 @@ export interface MessageItem {
   message: ChatMessage;
 }
 
-const ChatView: FC = () => {
+export default function ChatView({doctor}:{doctor:Doctor}) {
   const { slug } = useParams();
   const [pubnub, setPubnub] = useState<PubNub | null>(null);
   const [messages, setMessages] = useState<MessageItem[]>([]);
   const [inputText, setInputText] = useState("");
   const [isConnected, setIsConnected] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const doctor = dummyDoctors[0];
+  
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const thisUserId = doctor?.id.toString()+"doctor";
-  const user = dummyUsers.find((doc) => doc.id === slug);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const user = useUserStore((state) => state.user as any);
   const channelName = useMemo(
     () => (!user?.id ? null : `doctor-${doctor.id}-user-${user?.id}`),
-    [slug, user?.id, doctor.id]
+    [user?.id, doctor.id]
   );
 
   useEffect(() => {
@@ -123,7 +124,7 @@ const ChatView: FC = () => {
       };
 
       pubnub.publish({
-        message: messageObject,
+        message: messageObject as ANY,
         channel: channelName,
       });
 
@@ -207,4 +208,3 @@ const ChatView: FC = () => {
   );
 };
 
-export default ChatView;

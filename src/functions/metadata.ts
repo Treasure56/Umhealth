@@ -19,8 +19,9 @@ export type MetadataProps = {
  * @param {string} [props.path] - The path of the metadata.
  * @return {Metadata} The generated metadata.
  */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function createMetadata({ title, description, img, path }: MetadataProps): Metadata {
-    const keywords = ["Center point Network", "rentals", "Homes", "buildings", "real estate UK", "agents", ...title.split(' '), ...description.split(' ')];
+    const keywords = ["hospital", "rentals", "Homes", "buildings", "real estate UK", "agents", ...title.split(' '), ...description.split(' ')];
     const buildImg = img ? (img.startsWith('/') ? HOST+img : img) : '/images/hero.png';
 
     return {
@@ -28,8 +29,8 @@ export function createMetadata({ title, description, img, path }: MetadataProps)
         description,
         metadataBase: new URL(HOST),
         icons: ["/images/icon.png"],
-        appleWebApp: { capable: true, title: "Center point Network", startupImage: ["/images/hero.png"] },
-        applicationName: "Center point Network",
+        appleWebApp: { capable: true, title: "Umhealth", startupImage: ["/images/hero.png"] },
+        applicationName: "Umhealth",
         keywords: keywords,
         // manifest: "/files/manifest.json",
         twitter: { title, description, images: [buildImg] },

@@ -7,7 +7,7 @@ export type User = {
   location?: string;
   first_consultation?: string;
   last_consultation?: string;
-  avatar?: string;
+  display_picture?: string;
   records?: UserRecord[];
 };
 
@@ -48,7 +48,7 @@ export const dummyUser: User = {
   location: "Lagos, Nigeria",
   first_consultation: "2022-01-01",
   last_consultation: "2022-01-01",
-  avatar: "/images/profile.png",
+  display_picture: "/images/profile.png",
   records: [
     {
       type: "Lab Test",

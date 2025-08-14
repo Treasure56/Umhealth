@@ -136,4 +136,7 @@
    .admin-side-link {
     @apply flex gap-3 font-[500] items-center text-neutral-700 hover:text-primary p-2 rounded-md hover:bg-neutral-100 transition-colors duration-300
   }
+  button, a{
+    @apply cursor-pointer
+  }
 }

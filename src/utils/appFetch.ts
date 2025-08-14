@@ -30,6 +30,8 @@ export async function appFetch<T = any>({ url, timeoutSeconds = 40, body, ...ini
         ...init.headers,
       },
     });
+    if (init.method === "DELETE") console.log("RES:", await req.text());
+
     return await req.json()
   } catch (error) {
     console.error("Error in appFetch:", error);

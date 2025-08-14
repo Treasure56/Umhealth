@@ -43,7 +43,7 @@ export function isVideo(url: string) {
 
 export function splitStringToNestedArrays(input: string): { v: string; i: number }[][] {
     // Initialize variables
-    let result: { v: string; i: number }[][] = [];
+    const result: { v: string; i: number }[][] = [];
     let index = 0;  // This will keep track of the original index in the input string
 
     // Split the input string into words
@@ -52,7 +52,7 @@ export function splitStringToNestedArrays(input: string): { v: string; i: number
     // Process each word
     for (const word of words) {
         // Create an array for each word
-        let wordArray: { v: string; i: number }[] = [];
+        const wordArray: { v: string; i: number }[] = [];
 
         // Process each character in the word
         for (const char of word) {
@@ -72,6 +72,7 @@ export function splitStringToNestedArrays(input: string): { v: string; i: number
     return result;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function buildUrlQuery(obj: { [key: string]: any } | undefined) {
     if (!obj) return '';
     return "?" + Object.entries(obj).map(v => `${v[0]}=${v[1] ?? ''}`).join('&')

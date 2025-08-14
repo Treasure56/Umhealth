@@ -1,28 +1,28 @@
 "use client"
-import { $deleteConsultation } from "@/action/user/deleteConsultation";
+import { $deleteNotification } from "@/action/user/deleteNotification";
 import FormButton from "@/components/form/FormButton";
 import { FormMessage } from "@/components/form/FromMessage";
 import {
-    AlertDialog,
-    AlertDialogCancel,
-    AlertDialogContent,
-    AlertDialogHeader,
-    AlertDialogTitle,
-    AlertDialogTrigger
+  AlertDialog,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger
 } from "@/components/ui/alert-dialog";
 import { useAppActionState } from "@/hooks/useActionState";
-import { Consultation } from "@/types/consultation";
+import { Notification } from "@/types/notification";
 import { ReactNode } from "react";
 
 type DeleteConsultationProps = {
-  consultation: Consultation;
+  notification: Notification;
   children: ReactNode;
 };
 
-export default function DeleteModal({ consultation, children }: DeleteConsultationProps) {
-  const { submitting, action, state, modalProps } = useAppActionState($deleteConsultation, {
+export default function DeleteModal({ notification: notification, children }: DeleteConsultationProps) {
+  const { submitting, action, state, modalProps } = useAppActionState($deleteNotification, {
     moreFields: {
-      id: consultation.id.toString(),
+      id: notification.id.toString(),
     }
   });
 
@@ -33,7 +33,7 @@ export default function DeleteModal({ consultation, children }: DeleteConsultati
         <AlertDialogHeader>
           <AlertDialogTitle>
             Are you sure you want to delete{" "}
-            <span className="text-brand-primary"> consultation{consultation.reason_for_visit}</span> ?
+            <span className="text-brand-primary">{notification.title}</span> ?
           </AlertDialogTitle>
         </AlertDialogHeader>
         <form action={action} className="grid gap-4">

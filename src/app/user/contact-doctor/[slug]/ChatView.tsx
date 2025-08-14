@@ -1,14 +1,14 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { useEffect, useRef, useState, FC, useMemo } from "react";
-import PubNub from "pubnub";
-import { useParams } from "next/navigation";
-import { useUserStore } from "@/store/userStore";
-import Image from "next/image";
-import { FiSend } from "react-icons/fi";
 import { MessageItemComponent } from "@/components/ui/ChatBubble";
-import { dummyDoctors } from "@/types/doctor";
+import { useUserStore } from "@/store/userStore";
+import { ANY } from "@/types";
+import { Doctor } from "@/types/doctor";
+import Image from "next/image";
+import { useParams } from "next/navigation";
+import PubNub from "pubnub";
+import { FC, useEffect, useMemo, useRef, useState } from "react";
+import { FiSend } from "react-icons/fi";
 
 export interface ChatMessage {
   text: string;
@@ -21,17 +21,17 @@ export interface MessageItem {
   message: ChatMessage;
 }
 
-const ChatView: FC = () => {
+const ChatView: FC<{ doctor: Doctor }> = ({ doctor }) => {
   const { slug } = useParams();
   const [pubnub, setPubnub] = useState<PubNub | null>(null);
   const [messages, setMessages] = useState<MessageItem[]>([]);
   const [inputText, setInputText] = useState("");
   const [isConnected, setIsConnected] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const [ , setIsLoading] = useState(true);
   const { user } = useUserStore();
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const thisUserId = user?.id.toString()+"user";
-  const doctor = dummyDoctors.find((doc) => doc.id === slug);
+  // const doctor = dummyDoctors.find((doc) => doc.id === slug);
   const channelName = useMemo(
     () => (!user?.id ? null : `doctor-${slug}-user-${user?.id}`),
     [slug, user?.id]
@@ -122,12 +122,12 @@ const ChatView: FC = () => {
       };
 
       pubnub.publish({
-        message: messageObject,
+        message: messageObject as ANY,
         channel: channelName,
       });
 
       setInputText("");
-    } catch (error) {
+    } catch (_) {
       alert("Message Failed. Could not send your message. Please try again.");
     }
   };
@@ -142,7 +142,7 @@ const ChatView: FC = () => {
           alt={doctor.name}
           width={48}
           height={48}
-          className="rounded-full object-cover"
+          className="rounded-full object-cover aspect-square overflow-hidden bg-gray-200"
         />
         <div>
           <div className="font-semibold text-lg text-[#162447]">

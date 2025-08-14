@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
-type Env = 'production' | 'development'
+// type Env = 'production' | 'development'
 const ENV = process.env.NEXT_PUBLIC_ENV || 'development';
 
 export function debugLog(...args: any[]) {
