@@ -1,15 +1,17 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { appCookies } from "./constants/cookies";
+import { paths } from "./utils/paths";
 
 // Define protected routes
-const protectedRoutes = ["/user", "/consultations"];
+const protectedRoutes = [paths.contactDoctor, paths.user];
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Check if route is protected
   if (protectedRoutes.some((route) => pathname.startsWith(route))) {
-    const token = request.cookies.get("token")?.value;
+    const token = request.cookies.get(appCookies.userToken)?.value;
 
     // If no token, redirect to login
     if (!token) {
