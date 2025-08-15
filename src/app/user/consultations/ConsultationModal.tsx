@@ -34,8 +34,7 @@ export default function ConsultationModal({
   return (
     <Dialog {...modalProps}>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="overflow-y-auto max-h-[90vh]">
-        <DialogHeader>
+      <DialogContent className="overflow-y-auto max-h-[90vh] items-start border-white">
           <DialogTitle>Book New Consultation</DialogTitle>
           <DialogDescription asChild>
             <form key={formKey} action={action} className="flex flex-col gap-4">
@@ -77,7 +76,6 @@ export default function ConsultationModal({
               </FormButton>
             </form>
           </DialogDescription>
-        </DialogHeader>
       </DialogContent>
     </Dialog>
   );

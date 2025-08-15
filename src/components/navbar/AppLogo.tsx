@@ -9,7 +9,7 @@ export function AppLogo({toWebsite = false}:{toWebsite?:boolean}) {
       <div className="flex gap-1 items-center origin-left max-sm:scale-95">
        
          <img
-          src="/images/logo.png"
+          src="/images/app-logo.png"
           alt="umhealth Logo"
           className="w-[134px] max-w-full"
         />

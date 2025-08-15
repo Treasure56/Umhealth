@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { appMetadata } from "@/components/functions/metadata";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 
@@ -8,10 +8,10 @@ const poppins = Poppins({
   subsets: ["latin"], 
 });
 
-export const metadata: Metadata = {
+export const metadata = appMetadata( {
   title: "UMHealth",
   description: "Your health, our priority",
-};
+});
 
 export default function RootLayout({
   children,
