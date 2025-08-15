@@ -18,7 +18,7 @@ export default function NotFound() {
         </p>
         <button
           onClick={() => (window.location.href = paths.home)}
-          className="btn btn-primary !px-10 !py-3"
+          className="btn btn-primary !px-10 !py-3 !rounded-3xl"
         >
           Go to Home
         </button>
