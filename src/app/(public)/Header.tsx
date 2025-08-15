@@ -1,3 +1,4 @@
+import { AppLogo } from "@/components/navbar/AppLogo";
 import Image from "next/image";
 import Link from "next/link";
 import { FaXTwitter } from "react-icons/fa6";
@@ -8,14 +9,7 @@ export default function Header() {
     <header className="flex justify-between items-center gap-4 p-4  ">
       {/* Logo and Brand */}
       <Link href="/" className="flex items-center gap-2">
-        <Image
-          src="/images/logo.png"
-          alt="UM-Health Logo"
-          width={212}
-          height={44}
-          className="w-auto h-8"
-          priority
-        />
+        <AppLogo />
       </Link>
       {/* Welcome Text */}
       <div className=" max-md:hidden text-center flex-1">
